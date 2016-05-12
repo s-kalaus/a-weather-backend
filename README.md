@@ -12,7 +12,7 @@ Simple backend for weather extension. Node.js/Express/Swagger/ejs
 
 #Web server config
 
-Point document root of webserver to `public` directory
+Point document root of webserver to `public` directory, nodejs is on 4400 port by default
 
 ### Execution
 
