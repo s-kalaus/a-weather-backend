@@ -1,0 +1,24 @@
+{
+    "name": "a-weather-backend",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node server"
+    },
+    "dependencies": {
+        "async": "1.5.2",
+        "lodash": "4.12.0",
+        "path": "0.12.7",
+        "express": "4.13.4",
+        "ejs": "2.4.1",
+        "request": "2.72.0",
+        "swagger-express-mw": "0.1.0",
+        "swagger-tools": "0.10.1",
+        "request-ip": "1.2.2",
+        "geoip-lite": "1.1.8",
+        "openweathermap": "1.0.0"
+    },
+    "engines": {
+        "node": "4.x.x"
+    }
+}
