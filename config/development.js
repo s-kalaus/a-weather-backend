@@ -2,8 +2,8 @@
 
 var config = {
     server: {
-        port: 4400,
-        host: 'a-weather.kalaus.ru'
+        port: 4401,
+        host: 'a-weather-dev.kalaus.ru'
     },
     openweathermap: {
         appid: '2edbc4224c5176113bc9ec2748441266'
