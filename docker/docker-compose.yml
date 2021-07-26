@@ -1,0 +1,43 @@
+version: '3'
+
+networks:
+  weather-development:
+
+services:
+  weather-nginx-development:
+    build: nginx
+    tty: true
+    env_file:
+      - ./nginx/conf/.env
+    depends_on:
+      - weather-runner-development
+    volumes:
+      - /etc/ssl/certs/kalaus:/etc/nginx/ssl
+      - ./nginx/conf/entrypoint.sh:/entrypoint.sh
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf/squid.conf:/etc/squid/squid.conf
+      - ..:/app
+    entrypoint:
+      - sh
+      - /entrypoint.sh
+    ports:
+      - '8732:8181'
+    networks:
+      weather-development:
+        aliases:
+          - a-weather.kalaus.ru
+
+  weather-runner-development:
+    build: runner
+    tty: true
+    env_file:
+      - ./runner/conf/.env
+    volumes:
+      - ./runner/conf/entrypoint.sh:/entrypoint.sh
+      - ./runner/conf/ecosystem.config.js:/app/ecosystem.config.js
+      - ..:/app
+    entrypoint:
+      - sh
+      - /entrypoint.sh
+    networks:
+      weather-development:

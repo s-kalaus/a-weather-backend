@@ -1,38 +1,31 @@
-'use strict';
-
-var util = require('util');
+const util = require('util');
 
 module.exports = function create() {
+  return function (context, next) {
+    if (!util.isError(context.error)) {
+      return next();
+    }
 
-    return function(context, next) {
+    let err = {};
 
-        if (!util.isError(context.error)) { return next(); }
-
-        var err = {};
-
-        if (context.error.message) {
-
-            try {
-                err = JSON.parse(context.error.message);
-            }
-            catch (e) {
-
-                err.message = String(context.error.message);
-
-                if (context.error.code) {
-                    err.code = context.error.code;
-                }
-            }
+    if (context.error.message) {
+      try {
+        err = JSON.parse(context.error.message);
+      } catch (e) {
+        err.message = String(context.error.message);
+        if (context.error.code) {
+          err.code = context.error.code;
         }
+      }
+    }
 
-        if (!err.message) {
-            err.message = 'Unhandled Error';
-        }
+    if (!err.message) {
+      err.message = 'Unhandled Error';
+    }
 
-        err.success = false;
+    err.success = false;
+    delete err.statusCode;
 
-        delete err.statusCode;
-
-        return context.response.json(err);
-    };
+    return context.response.json(err);
+  };
 };

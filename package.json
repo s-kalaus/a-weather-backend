@@ -1,24 +1,23 @@
 {
-    "name": "a-weather-backend",
-    "version": "1.0.0",
-    "private": true,
-    "scripts": {
-        "start": "node server"
-    },
-    "dependencies": {
-        "async": "1.5.2",
-        "lodash": "4.12.0",
-        "path": "0.12.7",
-        "express": "4.13.4",
-        "ejs": "2.4.1",
-        "request": "2.72.0",
-        "swagger-express-mw": "0.1.0",
-        "swagger-tools": "0.10.1",
-        "request-ip": "1.2.2",
-        "geoip-lite": "1.1.8",
-        "openweathermap": "1.0.0"
-    },
-    "engines": {
-        "node": "4.x.x"
-    }
+  "name": "a-weather-backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server"
+  },
+  "dependencies": {
+    "async": "^3.2.0",
+    "lodash": "^4.17.21",
+    "express": "^4.17.1",
+    "ejs": "^3.1.6",
+    "request": "^2.88.2",
+    "swagger-express-mw": "^0.7.0",
+    "swagger-tools": "^0.10.4",
+    "request-ip": "^2.1.3",
+    "geoip-lite": "^1.4.2",
+    "openweathermap": "^1.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.2"
+  }
 }
