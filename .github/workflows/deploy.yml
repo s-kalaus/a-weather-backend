@@ -11,17 +11,8 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
       - name: Zip artifacts
         run: mkdir -p release/public && cp -R api config services views .bowerrc bower.json Makefile package.json package-lock.json server.js release && zip -r9 release release
       - name: Create Release
