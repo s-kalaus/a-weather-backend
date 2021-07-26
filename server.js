@@ -63,7 +63,7 @@ app.use(function (req, res, next) {
 app.get('/docs', function (req, res) {
   res.set('Content-Type', 'text/html');
   return res.render('swagger', {
-    url: `${req?.headers['x-forwarded-proto'] || 'http'}://${
+    url: `${req.headers['x-forwarded-proto'] || 'http'}://${
       config.server.host
     }/docs/api`,
   });
