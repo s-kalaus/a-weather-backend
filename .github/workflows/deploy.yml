@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Zip artifacts
-        run: mkdir -p release/public && cp -R api config services views .bowerrc bower.json Makefile package.json package-lock.json server.js release && zip -r9 release release
+        run: mkdir -p release/public && cp -R api config services views .bowerrc bower.json Makefile package.json package-lock.json server.js ecosystem.config.js release && zip -r9 release release
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
