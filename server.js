@@ -46,6 +46,8 @@ SwaggerExpress.create(swaggerConfig, function (err, swaggerExpress) {
   swaggerExpress.register(app);
 });
 
+app.use(express.static('public'));
+
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');

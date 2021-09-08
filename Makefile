@@ -10,3 +10,7 @@ ssh-nginx:
 down:
 	@cd docker && docker-compose down
 
+build:
+	@docker build -t kalaus-weather -f docker/backend/Dockerfile .
+	@docker tag kalaus-weather:latest kalaus/weather:latest
+	@docker push kalaus/weather:latest

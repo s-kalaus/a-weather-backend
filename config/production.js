@@ -4,7 +4,7 @@ const config = {
     host: 'a-weather.kalaus.ru',
   },
   openweathermap: {
-    appid: '2edbc4224c5176113bc9ec2748441266',
+    appid: process.env.OPENWEATHER_APP_ID,
   },
 };
 
