@@ -23,4 +23,8 @@ COPY --from=builder /build/docker/backend/conf/entrypoint.sh /root/host/init.sh
 
 WORKDIR /app
 
+RUN npm ci --only=prod
+RUN npx bower install --allow-root
+
+
 ENTRYPOINT ["sh", "/root/host/init.sh"]
