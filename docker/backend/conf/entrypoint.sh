@@ -1,9 +1,7 @@
 #!/bin/sh
 
-npm ci
+npm ci --only=prod
+
 npx bower install --allow-root
 
-npx pm2 start --only weather-backend
-
-tail -f /dev/null
-
+npx pm2 start --no-daemon
