@@ -5,5 +5,5 @@ module.exports = _.extend(
   {
     env: env,
   },
-  require('./' + env)
+  require('./' + env),
 );

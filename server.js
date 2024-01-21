@@ -53,7 +53,7 @@ app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.header(
     'Access-Control-Allow-Headers',
-    'Content-Type,X-Requested-With,Set-Cookie,sid'
+    'Content-Type,X-Requested-With,Set-Cookie,sid',
   );
   res.header('Content-Type', 'application/json; charset=utf-8');
   res.header('Cache-Control', 'no-cache, no-store, must-revalidate');
@@ -76,5 +76,5 @@ app.get('/docs/api', function (req, res) {
 });
 
 app.listen(config.server.port, () =>
-  console.log(`Listening on: ${config.server.port}`)
+  console.log(`Listening on: ${config.server.port}`),
 );

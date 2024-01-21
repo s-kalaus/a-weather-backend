@@ -1,7 +1,7 @@
 const util = require('util');
 
-module.exports = function create() {
-  return function (context, next) {
+module.exports = () => {
+  return (context, next) => {
     if (!util.isError(context.error)) {
       return next();
     }
@@ -24,6 +24,7 @@ module.exports = function create() {
     }
 
     err.success = false;
+
     delete err.statusCode;
 
     return context.response.json(err);

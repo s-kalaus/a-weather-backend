@@ -1,8 +1,7 @@
-FROM node:14-slim
+FROM node:20-slim
 
 RUN apt-get update
 RUN apt-get install -y mc
-RUN apt-get install -y mysql-client
 RUN apt-get install -y git-core
 RUN apt-get install -y wget
 RUN apt-get install -y curl

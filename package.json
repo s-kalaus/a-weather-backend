@@ -6,20 +6,20 @@
     "start": "node server"
   },
   "dependencies": {
-    "bower": "^1.8.12",
-    "pm2": "^5.1.1",
-    "async": "^3.2.0",
-    "lodash": "^4.17.21",
-    "express": "^4.17.1",
-    "ejs": "^3.1.6",
-    "request": "^2.88.2",
-    "swagger-express-mw": "^0.7.0",
-    "swagger-tools": "^0.10.4",
-    "request-ip": "^2.1.3",
-    "geoip-lite": "^1.4.2",
-    "openweathermap": "^1.0.0"
+    "bower": "1.8.14",
+    "pm2": "5.3.1",
+    "async": "3.2.5",
+    "lodash": "4.17.21",
+    "express": "4.18.2",
+    "ejs": "3.1.9",
+    "axios": "1.6.5",
+    "swagger-express-mw": "0.7.0",
+    "swagger-tools": "0.10.4",
+    "request-ip": "3.3.0",
+    "geoip-lite": "1.4.9",
+    "openweathermap": "1.0.0"
   },
   "devDependencies": {
-    "prettier": "^2.3.2"
+    "prettier": "3.2.4"
   }
 }

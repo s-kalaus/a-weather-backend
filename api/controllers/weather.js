@@ -3,11 +3,11 @@ const WeatherService = require('../../services/weather');
 const UtilService = require('../../services/util');
 
 const WeatherApi = {
-  current: function (req, res) {
+  current: (req, res) => {
     return async.waterfall(
       [
-        function (next) {
-          return UtilService.geocode(req, function (err, geodata) {
+        (next) => {
+          return UtilService.geocode(req, (err, geodata) => {
             if (err) {
               return next(err);
             }
@@ -15,35 +15,36 @@ const WeatherApi = {
             return next(null, geodata);
           });
         },
-        function (geodata, next) {
+        (geodata, next) => {
           return WeatherService.getCurrent(
             {
               coord: geodata.ll,
               city: geodata.country,
               country: geodata.city,
             },
-            function (err, weather) {
+            (err, weather) => {
               if (err) {
                 return next(err);
               }
 
               return next(null, weather);
-            }
+            },
           );
         },
       ],
-      function (err, weather) {
+      (err, weather) => {
         if (err) {
           return res.json({
             success: false,
             message: err,
           });
         }
+
         return res.json({
           success: true,
           weather: weather,
         });
-      }
+      },
     );
   },
 };

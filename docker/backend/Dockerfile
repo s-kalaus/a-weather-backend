@@ -1,8 +1,8 @@
-FROM node:14-slim AS builder
+FROM node:20-slim AS builder
 
 COPY . /build
 
-FROM node:14-alpine
+FROM node:20-alpine
 
 RUN apk add git
 RUN mkdir -p /app/config

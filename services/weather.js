@@ -8,8 +8,8 @@ openweathermap.defaults({
   appid: config.openweathermap.appid,
 });
 
-var WeatherService = {
-  getCurrent: function (params, callback) {
+const WeatherService = {
+  getCurrent: (params, callback) => {
     const q = {};
 
     if (params.coord) {
@@ -17,6 +17,7 @@ var WeatherService = {
       q.lon = params.coord[1];
     } else if (params.city) {
       const place = [params.city];
+
       if (params.county) {
         place.push(params.county);
       }
@@ -25,10 +26,11 @@ var WeatherService = {
       return callback('Invalid params');
     }
 
-    return openweathermap.now(q, function (err, weather) {
+    return openweathermap.now(q, (err, weather) => {
       if (err) {
         return callback(JSON.stringify(err));
       }
+
       return callback(null, weather);
     });
   },
