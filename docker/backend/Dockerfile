@@ -25,6 +25,7 @@ WORKDIR /app
 
 RUN npm ci --only=prod
 RUN npx bower install --allow-root
+RUN npm i -g pm2
 
 
 ENTRYPOINT ["sh", "/root/host/init.sh"]
