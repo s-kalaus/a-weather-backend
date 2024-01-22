@@ -11,6 +11,7 @@ RUN mkdir -p /app/public
 COPY --from=builder /build/api /app/api
 COPY --from=builder /build/config/index.js /app/config/index.js
 COPY --from=builder /build/config/production.js /app/config/production.js
+COPY --from=builder /build/config/default-0.json /app/config/default-0.json
 COPY --from=builder /build/services /app/services
 COPY --from=builder /build/views /app/views
 COPY --from=builder /build/server.js /app/server.js
